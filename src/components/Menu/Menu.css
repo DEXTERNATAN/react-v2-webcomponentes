@@ -1,0 +1,105 @@
+Menu.css .menu-body {
+  width: 100%;
+}
+
+.menu-folder {
+  position: relative;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: #1f1f1f;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.menu-item:hover {
+  background-color: rgba(19, 81, 180, 0.05);
+}
+
+.menu-item.active {
+  font-weight: bold;
+  background-color: #e7f1ff;
+}
+
+.menu-folder.active {
+  background-color: rgba(19, 81, 180, 0.05);
+}
+
+.menu-folder.has-children > .menu-item {
+  position: relative;
+}
+
+.menu-folder.has-children > .menu-item::after {
+  content: "";
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  border: solid #1351b4;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 3px;
+  transition: transform 0.3s ease;
+}
+
+.menu-folder.active.has-children > .menu-item::after {
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.menu-folder.active > .menu-item {
+  font-weight: bold;
+}
+
+.menu-item .icon {
+  margin-right: 12px;
+  width: 20px;
+  text-align: center;
+  color: #1351b4;
+}
+
+.menu-item .content {
+  flex: 1;
+}
+
+.menu-item .support {
+  margin-left: auto;
+}
+
+.menu-item.divider {
+  margin-top: 16px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.list-hide {
+  list-style-type: none;
+  padding-left: 20px;
+  margin: 0;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+.list-hide.show {
+  max-height: 2000px; /* Valor alto para acomodar qualquer número de itens */
+}
+
+.list-hide li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Ajustes específicos para submenus */
+.menu-folder ul li .menu-item {
+  padding-left: 32px;
+  font-size: 0.95em;
+}
+
+.menu-folder ul li ul li .menu-item {
+  padding-left: 44px;
+  font-size: 0.9em;
+}

@@ -1,10 +1,14 @@
-import React from 'react';
+import React from "react";
+import { Link, Outlet } from "react-router-dom";
+import "./Dashboard.css";
 
 const Dashboard: React.FC = () => {
   return (
     <div>
-      <h1>Dashboard</h1>
-      <p>Painel de controle e visualização de dados</p>
+      {/* Área onde os conteúdos das rotas aninhadas serão renderizados */}
+      <div className="dashboard-content">
+        <Outlet />
+      </div>
     </div>
   );
 };

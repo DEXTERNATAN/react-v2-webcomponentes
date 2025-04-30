@@ -1,0 +1,77 @@
+.bg-card-pesquisa {
+  background: linear-gradient(
+    135deg,
+    rgba(148, 226, 240, 0.36),
+    rgba(1, 193, 214, 0.36)
+  );
+}
+
+.framework-logo {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.react-logo {
+  height: 120px;
+  width: auto;
+}
+
+/* Estilo para o ícone SVG */
+.info-icon {
+  color: #155bcb;
+  display: block;
+}
+
+/* Estilos adicionais para complementar os componentes do GOV.BR */
+.max-w-4xl {
+  max-width: 56rem;
+}
+
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-6 {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.mb-4 {
+  margin-bottom: 1rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
+}
+
+.rounder-md {
+  border-radius: 0.375rem;
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.text-gray-800 {
+  color: #2d3748;
+}
+
+.leading-relaxed {
+  line-height: 1.625;
+}
+
+.font-semibold {
+  font-weight: 600;
+}

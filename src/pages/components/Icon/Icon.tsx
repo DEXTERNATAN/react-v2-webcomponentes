@@ -1,16 +1,16 @@
-import { BrAvatar, BrMessage } from "@govbr-ds/webcomponents-react";
+import { BrIcon, BrMessage } from "@govbr-ds/webcomponents-react";
 import React from "react";
 
-import "./AvatarDemo.css";
+import "./Icon.css";
 import "@govbr-ds/core/dist/core.min.css";
 
-const Avatar: React.FC = () => {
+const Icon: React.FC = () => {
   return (
-    <div className="avatar-container" role="main" style={{ padding: "20px" }}>
-      <h1>Avatar</h1>
+    <div className="icon-container" role="main" style={{ padding: "20px" }}>
+      <h1>Icon</h1>
       <p>
         Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-avatar&gt;</code>, que permite representar usuários por
+        <code>&lt;br-icon&gt;</code>, que permite representar usuários por
         meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
         acessibilidade e estados visuais.
       </p>
@@ -24,7 +24,7 @@ const Avatar: React.FC = () => {
 
       {/* 1. Tipos Principais (Densidade Média) */}
       <section
-        aria-labelledby="tipo-avatar"
+        aria-labelledby="tipo-icon"
         className="br-card screen-preview mb-4"
       >
         <div className="screen-header">
@@ -38,24 +38,24 @@ const Avatar: React.FC = () => {
             <code>text</code>.
           </p>
           <div
-            className="avatar-group"
+            className="icon-group"
             role="group"
-            aria-label="Avatares principais"
+            aria-label="Icones principais"
           >
-            <BrAvatar
+            <BrIcon
               src="https://picsum.photos/id/1062/80"
               density="medium"
               alt="Foto de perfil (mulher com câmera)"
               title="Tipo: src (Imagem)"
-              aria-label="Avatar tipo imagem"
+              aria-label="Icon tipo imagem"
             />
-            <BrAvatar
+            <BrIcon
               isIconic
               density="medium"
               alt="Ícone de usuário genérico"
               title="Tipo: isIconic (Ícone)"
             />
-            <BrAvatar
+            <BrIcon
               text="DG"
               density="medium"
               alt="Iniciais DG"
@@ -75,20 +75,20 @@ const Avatar: React.FC = () => {
             Demonstração dos tamanhos disponíveis via propriedade{" "}
             <code>density</code>.
           </p>
-          <div className="avatar-group">
-            <BrAvatar
+          <div className="icon-group">
+            <BrIcon
               src="https://picsum.photos/id/1062/80"
               density="small"
               title="Densidade: small"
               alt="Imagem pequena"
             />
-            <BrAvatar
+            <BrIcon
               src="https://picsum.photos/id/1062/80"
               density="medium"
               title="Densidade: medium"
               alt="Imagem média"
             />
-            <BrAvatar
+            <BrIcon
               src="https://picsum.photos/id/1062/80"
               density="large"
               title="Densidade: large"
@@ -107,15 +107,15 @@ const Avatar: React.FC = () => {
           <p className="card-text">
             Demonstra o uso da propriedade <code>disabled</code>.
           </p>
-          <div className="avatar-group">
-            <BrAvatar text="OK" density="medium" title="Habilitado" />
-            <BrAvatar
+          <div className="icon-group">
+            <BrIcon text="OK" density="medium" title="Habilitado" />
+            <BrIcon
               text="OK"
               density="medium"
               disabled
               title="Desabilitado"
             />
-            <BrAvatar
+            <BrIcon
               isIconic
               density="medium"
               disabled
@@ -135,16 +135,16 @@ const Avatar: React.FC = () => {
             Exemplo de personalização com <code>iconWidth</code> e{" "}
             <code>iconHeight</code>.
           </p>
-          <div className="avatar-group">
-            <BrAvatar isIconic density="large" title="Padrão" />
-            <BrAvatar
+          <div className="icon-group">
+            <BrIcon isIconic density="large" title="Padrão" />
+            <BrIcon
               isIconic
               density="large"
               iconWidth="32px"
               iconHeight="32px"
               title="32px"
             />
-            <BrAvatar
+            <BrIcon
               isIconic
               density="large"
               iconWidth="16px"
@@ -165,4 +165,4 @@ const Avatar: React.FC = () => {
   );
 };
 
-export default Avatar;
+export default Icon;

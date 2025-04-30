@@ -1,0 +1,49 @@
+/* Footer.css */
+
+.br-footer {
+  background-color: #f8f8f8;
+  border-top: 1px solid #e0e0e0;
+  color: #555;
+  font-size: 14px;
+}
+
+.br-footer .container-fluid {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.br-footer .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.text-down-01 {
+  margin-bottom: 8px;
+}
+
+.text-medium {
+  font-weight: 500;
+}
+
+.pb-3 {
+  padding-bottom: 1rem;
+}
+
+.pt-3 {
+  padding-top: 1rem;
+}
+
+.pb-5 {
+  padding-bottom: 3rem;
+}
+
+.br-footer a {
+  color: #1351b4;
+  text-decoration: none;
+}
+
+.br-footer a:hover {
+  text-decoration: underline;
+}
