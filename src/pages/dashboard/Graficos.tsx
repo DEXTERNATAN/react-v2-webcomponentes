@@ -201,7 +201,6 @@ const Graficos: React.FC = () => {
                   <div className="card-actions">
                     <BrButton
                       shape="circle"
-                      size="small"
                       aria-label="Atualizar dados"
                       onClick={() => updateChart("bar")}
                     >
@@ -222,7 +221,7 @@ const Graficos: React.FC = () => {
                   <div className="card-actions">
                     <BrButton
                       shape="circle"
-                      size="small"
+                      // size="small"
                       aria-label="Atualizar dados"
                       onClick={() => updateChart("line")}
                     >
@@ -248,7 +247,7 @@ const Graficos: React.FC = () => {
                   <div className="card-actions">
                     <BrButton
                       shape="circle"
-                      size="small"
+                      // size="small"
                       aria-label="Atualizar dados"
                       onClick={() => updateChart("pie")}
                     >
@@ -269,7 +268,7 @@ const Graficos: React.FC = () => {
                   <div className="card-actions">
                     <BrButton
                       shape="circle"
-                      size="small"
+                      // size="small"
                       aria-label="Atualizar dados"
                       onClick={() => updateChart("area")}
                     >
@@ -295,7 +294,7 @@ const Graficos: React.FC = () => {
                   <div className="card-actions">
                     <BrButton
                       shape="circle"
-                      size="small"
+                      // size="small"
                       aria-label="Atualizar dados"
                       onClick={() => updateChart("radar")}
                     >

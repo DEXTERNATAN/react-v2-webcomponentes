@@ -10,155 +10,52 @@ const Icon: React.FC = () => {
       <h1>Icon</h1>
       <p>
         Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-icon&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
+        <code>&lt;br-icon&gt;</code>, que permite representar usuários por meio
+        de imagem, ícone ou iniciais. Também é possível ajustar densidade,
         acessibilidade e estados visuais.
       </p>
 
-      <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
-        className="mb-4"
-      />
+      <BrMessage state="danger" show-icon className="mb-4">
+        <ul className="mb-0">
+          <li>
+            O ícone nao permite trocar a cor quando usa-se a propriedade
+            <code>css-classes</code>
+          </li>
+          <li>
+            O <code>v-model</code> não está funcionando corretamente no
+            componente
+            <code>&lt;br-icon&gt;</code>.
+          </li>
+        </ul>
+      </BrMessage>
 
       {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-icon"
-        className="br-card screen-preview mb-4"
-      >
-        <div className="screen-header">
-          <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
-          </div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="icon-group"
-            role="group"
-            aria-label="Icones principais"
-          >
-            <BrIcon
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Icon tipo imagem"
-            />
-            <BrIcon
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrIcon
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
-          </div>
-        </div>
-      </section>
 
-      {/* 2. Variações de Densidade (Imagem) */}
       <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
+          <div className="screen-title">Icones</div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="icon-group">
+          <div className="d-flex flex-wrap justify-content-evenly mt-3 p-2">
             <BrIcon
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
+              width="30"
+              height="20"
+              className="mr-2"
+              icon-name="fa-brands:chromecast"
             />
             <BrIcon
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
+              width="30"
+              height="20"
+              className="mr-2"
+              icon-name="fa-regular:envelope"
             />
             <BrIcon
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
+              width="30"
+              height="20"
+              className="mr-2"
+              icon-name="fa-solid:camera"
             />
           </div>
-        </div>
-      </div>
-
-      {/* 3. Estado Desabilitado */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="icon-group">
-            <BrIcon text="OK" density="medium" title="Habilitado" />
-            <BrIcon
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrIcon
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="icon-group">
-            <BrIcon isIconic density="large" title="Padrão" />
-            <BrIcon
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrIcon
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
         </div>
       </div>
     </div>

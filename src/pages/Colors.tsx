@@ -68,14 +68,11 @@ const Colors: React.FC = () => {
               value={searchTerm}
               id="inputButtonRight"
               placeholder="Buscar por nome, hex ou token..."
-              onValueChange={(e) => setSearchTerm(e.detail.value)}
+              onValueChange={(e: CustomEvent<string>) =>
+                setSearchTerm(e.detail)
+              }
             >
-              <BrIcon
-                slot="action"
-                iconName="fa-solid:search"
-                height="16"
-                ariaHidden
-              />
+              <BrIcon slot="action" iconName="fa-solid:search" height="16" />
             </BrInput>
 
             {!searchTerm && (
@@ -97,7 +94,7 @@ const Colors: React.FC = () => {
           isInline
           isClosable
           showIcon
-          ariaLabel="info: Cor copiada com sucesso"
+          // ariaLabel="info: Cor copiada com sucesso"
           onClick={() => setMensagemVisivel(false)}
         />
       )}
@@ -107,7 +104,7 @@ const Colors: React.FC = () => {
           message={`Nenhuma cor encontrada para a busca: "${searchTerm}"`}
           isInline
           showIcon
-          ariaLabel={`aviso: sem resultados`}
+          // ariaLabel={`aviso: sem resultados`}
         />
       )}
 

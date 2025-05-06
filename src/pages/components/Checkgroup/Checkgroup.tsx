@@ -1,167 +1,142 @@
-import { BrCheckgroup, BrMessage } from "@govbr-ds/webcomponents-react";
-import React from "react";
+import React, { useState } from "react";
+import {
+  BrCheckgroup,
+  BrCheckbox,
+  BrMessage,
+} from "@govbr-ds/webcomponents-react";
 
-import "./Checkgroup.css";
 import "@govbr-ds/core/dist/core.min.css";
+import "./Checkgroup.css";
 
 const Checkgroup: React.FC = () => {
+  const [selectedSimple, setSelectedSimple] = useState<string[]>([]);
+  const [selectedNested, setSelectedNested] = useState<string[]>([]);
+
+  // Manipuladores genéricos
+  const handleSimpleChange = (value: string) => {
+    setSelectedSimple((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
+
+  const handleNestedChange = (value: string) => {
+    setSelectedNested((prev) =>
+      prev.includes(value) ? prev.filter((v) => v !== value) : [...prev, value]
+    );
+  };
+
   return (
-    <div
-      className="checkgroup-container"
-      role="main"
-      style={{ padding: "20px" }}
-    >
+    <div className="checkgroup-container" role="main">
       <h1>Checkgroup</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-checkgroup&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra o uso do componente{" "}
+        <code>&lt;br-checkgroup&gt;</code>, que permite agrupar checkboxes com
+        controle de seleção e desmarcação em lote.
       </p>
 
       <BrMessage
         state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
+        message="O v-model não está funcionando corretamente no componente <br-checkgroup>."
         showIcon
         className="mb-4"
       />
 
-      {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-checkgroup"
-        className="br-card screen-preview mb-4"
-      >
+      {/* Exemplo 1: seleção simples */}
+      <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
-          </div>
+          <div className="screen-title">Exemplo de Checkgroup simples</div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="checkgroup-group"
-            role="group"
-            aria-label="Checkgroupes principais"
+          <BrCheckgroup
+            label="Lista de opções"
+            labelSelecionado="Selecionar tudo"
+            labelDesselecionado="Desselecionar tudo"
           >
-            <BrCheckgroup
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Checkgroup tipo imagem"
+            <BrCheckbox
+              id="ckb-1"
+              name="h-checkbox-1"
+              value="1"
+              label="Opção 1"
+              className="mb-1"
+              checked={selectedSimple.includes("1")}
+              onClick={() => handleSimpleChange("1")}
             />
-            <BrCheckgroup
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
+            <BrCheckbox
+              id="ckb-2"
+              name="h-checkbox-2"
+              value="2"
+              label="Opção 2"
+              checked={selectedSimple.includes("2")}
+              onClick={() => handleSimpleChange("2")}
             />
-            <BrCheckgroup
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
-          </div>
-        </div>
-      </section>
+          </BrCheckgroup>
 
-      {/* 2. Variações de Densidade (Imagem) */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
+          <p className="mt-3">
+            Itens selecionados:{" "}
+            <strong>{selectedSimple.join(", ") || "nenhum"}</strong>
           </p>
-          <div className="checkgroup-group">
-            <BrCheckgroup
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrCheckgroup
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrCheckgroup
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
-          </div>
         </div>
       </div>
 
-      {/* 3. Estado Desabilitado */}
+      {/* Exemplo 2: aninhado */}
       <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
+          <div className="screen-title">Exemplo de Checkgroup aninhado</div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="checkgroup-group">
-            <BrCheckgroup text="OK" density="medium" title="Habilitado" />
-            <BrCheckgroup
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
+          <BrCheckgroup
+            label="Grupo Principal"
+            labelSelecionado="Selecionar tudo"
+            labelDesselecionado="Desselecionar tudo"
+          >
+            <BrCheckbox
+              id="p2-f1"
+              name="p2-f1"
+              value="1"
+              label="Opção 1"
+              className="mb-1"
+              checked={selectedNested.includes("1")}
+              onClick={() => handleNestedChange("1")}
             />
-            <BrCheckgroup
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
+            <BrCheckbox
+              id="p2-f2"
+              name="p2-f2"
+              value="2"
+              label="Opção 2"
+              className="mb-1"
+              checked={selectedNested.includes("2")}
+              onClick={() => handleNestedChange("2")}
             />
-          </div>
-        </div>
-      </div>
 
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="checkgroup-group">
-            <BrCheckgroup isIconic density="large" title="Padrão" />
             <BrCheckgroup
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrCheckgroup
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
+              label="Selecionar grupo"
+              labelSelecionado="Selecionar grupo"
+              labelDesselecionado="Desselecionar grupo"
+            >
+              <BrCheckbox
+                id="p2-f3-1"
+                name="p2-f3-1"
+                value="3"
+                label="Opção 3"
+                className="mb-1"
+                checked={selectedNested.includes("3")}
+                onClick={() => handleNestedChange("3")}
+              />
+              <BrCheckbox
+                id="p2-f3-2"
+                name="p2-f3-2"
+                value="4"
+                label="Opção 4"
+                className="mb-1"
+                checked={selectedNested.includes("4")}
+                onClick={() => handleNestedChange("4")}
+              />
+            </BrCheckgroup>
+          </BrCheckgroup>
+
+          <p className="mt-3">
+            Itens selecionados:{" "}
+            <strong>{selectedNested.join(", ") || "nenhum"}</strong>
           </p>
         </div>
       </div>

@@ -223,7 +223,6 @@ const FormulariosValidacao: React.FC = () => {
                 color-mode="light"
                 disabled={false}
                 is-active={false}
-                shape="pill"
                 type="text"
                 value={form.nome}
                 state={errosCad.nome ? "danger" : undefined}
@@ -328,17 +327,17 @@ const FormulariosValidacao: React.FC = () => {
                 id="genero"
                 label="Gênero *"
                 placeholder="Selecione uma opção"
-                value={form.genero}
-                state={errosCad.genero ? "danger" : undefined}
+                // value={form.genero}
+                // state={errosCad.genero ? "danger" : undefined}
                 options={[
                   { label: "Masculino", value: "masculino" },
                   { label: "Feminino", value: "feminino" },
                   { label: "Outro", value: "outro" },
                 ]}
                 onBlur={() => validaCampoCad("genero")}
-                onValueChange={(value: string) =>
-                  handleChangeCad("genero", value)
-                }
+                // onValueChange={(value: string) =>
+                //   handleChangeCad("genero", value)
+                // }
               />
               {errosCad.genero && (
                 <BrMessage
@@ -433,7 +432,7 @@ const FormulariosValidacao: React.FC = () => {
                 id="termos"
                 name="termos"
                 checked={form.termos}
-                state={errosCad.termos ? "danger" : undefined}
+                // state={errosCad.termos ? "danger" : undefined}
                 onChange={(e) =>
                   handleChangeCad(
                     "termos",
@@ -516,15 +515,15 @@ const FormulariosValidacao: React.FC = () => {
                   checked={pesquisa.categorias.includes(cat)}
                   state={errosPesq.categorias ? "invalid" : undefined}
                   label={cat.charAt(0).toUpperCase() + cat.slice(1)}
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    const checked = (e.target as HTMLInputElement).checked;
-                    handleChangePesq(
-                      "categorias",
-                      checked
-                        ? [...pesquisa.categorias, cat]
-                        : pesquisa.categorias.filter((c) => c !== cat)
-                    );
-                  }}
+                  // onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  //   const checked = (e.target as HTMLInputElement).checked;
+                  //   handleChangePesq(
+                  //     "categorias",
+                  //     checked
+                  //       ? [...pesquisa.categorias, cat]
+                  //       : pesquisa.categorias.filter((c) => c !== cat)
+                  //   );
+                  // }}
                   key={cat}
                 />
               ))}

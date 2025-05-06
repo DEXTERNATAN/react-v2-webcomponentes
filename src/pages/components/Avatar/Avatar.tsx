@@ -4,9 +4,11 @@ import React from "react";
 import "./Avatar.css";
 import "@govbr-ds/core/dist/core.min.css";
 
+const AVATAR_SRC = "https://picsum.photos/id/1062/80";
+
 const Avatar: React.FC = () => {
   return (
-    <div className="avatar-container" role="main" style={{ padding: "20px" }}>
+    <div className="avatar-container" role="main">
       <h1>Avatar</h1>
       <p>
         Esta página apresenta variações e usos do componente{" "}
@@ -22,7 +24,7 @@ const Avatar: React.FC = () => {
         className="mb-4"
       />
 
-      {/* 1. Tipos Principais (Densidade Média) */}
+      {/* Tipos Principais */}
       <section
         aria-labelledby="tipo-avatar"
         className="br-card screen-preview mb-4"
@@ -43,124 +45,29 @@ const Avatar: React.FC = () => {
             aria-label="Avatares principais"
           >
             <BrAvatar
-              src="https://picsum.photos/id/1062/80"
+              src={AVATAR_SRC}
               density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
+              // alt="Foto de perfil (mulher com câmera)"
               aria-label="Avatar tipo imagem"
+              title="Tipo: src (Imagem)"
             />
             <BrAvatar
               isIconic
               density="medium"
-              alt="Ícone de usuário genérico"
+              // alt="Ícone de usuário genérico"
+              aria-label="Avatar tipo ícone"
               title="Tipo: isIconic (Ícone)"
             />
             <BrAvatar
               text="DG"
               density="medium"
-              alt="Iniciais DG"
+              // alt="Iniciais DG"
+              aria-label="Avatar tipo texto"
               title="Tipo: text (Letra)"
             />
           </div>
         </div>
       </section>
-
-      {/* 2. Variações de Densidade (Imagem) */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="avatar-group">
-            <BrAvatar
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrAvatar
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrAvatar
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Estado Desabilitado */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="avatar-group">
-            <BrAvatar text="OK" density="medium" title="Habilitado" />
-            <BrAvatar
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrAvatar
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="avatar-group">
-            <BrAvatar isIconic density="large" title="Padrão" />
-            <BrAvatar
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrAvatar
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
-        </div>
-      </div>
     </div>
   );
 };

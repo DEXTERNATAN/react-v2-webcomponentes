@@ -9,156 +9,33 @@ const Select: React.FC = () => {
     <div className="select-container" role="main" style={{ padding: "20px" }}>
       <h1>Select</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-select&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra o uso do componente <code>&lt;br-select&gt;</code>
+        , que permite a seleção de opções em um menu suspenso.
       </p>
 
       <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
+        show-icon
         className="mb-4"
+        state="danger"
+        message="V-model não está funcionando corretamente"
       />
 
-      {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-select"
-        className="br-card screen-preview mb-4"
-      >
+      <div className="br-card screen-preview">
         <div className="screen-header">
-          <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
-          </div>
+          <div className="screen-title">1. Select Simples</div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="select-group"
-            role="group"
-            aria-label="Selectes principais"
-          >
+          <div className="d-flex justify-content-evenly mt-5 p-4">
             <BrSelect
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Select tipo imagem"
-            />
-            <BrSelect
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrSelect
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
+              label="Label"
+              placeholder="Selecione uma opção"
+              options={[
+                { label: "Masculino", value: "masculino" },
+                { label: "Feminino", value: "feminino" },
+                { label: "Outro", value: "outro" },
+              ]}
+            ></BrSelect>
           </div>
-        </div>
-      </section>
-
-      {/* 2. Variações de Densidade (Imagem) */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="select-group">
-            <BrSelect
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrSelect
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrSelect
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Estado Desabilitado */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="select-group">
-            <BrSelect text="OK" density="medium" title="Habilitado" />
-            <BrSelect
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrSelect
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="select-group">
-            <BrSelect isIconic density="large" title="Padrão" />
-            <BrSelect
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrSelect
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
         </div>
       </div>
     </div>

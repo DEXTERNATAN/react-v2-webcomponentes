@@ -6,159 +6,57 @@ import "@govbr-ds/core/dist/core.min.css";
 
 const Divider: React.FC = () => {
   return (
-    <div className="divider-container" role="main" style={{ padding: "20px" }}>
+    <div className="divider-container" role="main">
       <h1>Divider</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-divider&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra o uso do componente <code>&lt;BrDivider&gt;</code>
+        , utilizado para criar separações visuais entre conteúdos.
       </p>
 
       <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
+        state="success"
+        message="Nenhuma inconsistência encontrada neste componente."
+        show-icon
         className="mb-4"
       />
 
-      {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-divider"
-        className="br-card screen-preview mb-4"
-      >
-        <div className="screen-header">
-          <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
-          </div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="divider-group"
-            role="group"
-            aria-label="Divideres principais"
-          >
-            <BrDivider
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Divider tipo imagem"
-            />
-            <BrDivider
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrDivider
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Variações de Densidade (Imagem) */}
+      {/* Exemplo 1: Divider padrão e modo escuro*/}
       <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
+          <div className="screen-title">Exemplo básico e modo escuro</div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="divider-group">
-            <BrDivider
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrDivider
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrDivider
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
-          </div>
-        </div>
-      </div>
+          <div className="d-flex flex-wrap justify-content-evenly">
+            <div className="row p-3">
+              <div className="col">
+                <p>
+                  O componente divider é uma linha neutra que separa conteúdos,
+                  sessões ou temas afins.
+                </p>
+                <BrDivider className="my-3" />
+                <p>
+                  Este é um exemplo do divider padrão com estilo solid e
+                  espessura small.
+                </p>
+              </div>
+            </div>
 
-      {/* 3. Estado Desabilitado */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="divider-group">
-            <BrDivider text="OK" density="medium" title="Habilitado" />
-            <BrDivider
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrDivider
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
+            <div className="row">
+              <div className="col">
+                <div className="bg-secondary-07 text-secondary-01 p-3">
+                  <p>
+                    Em fundos escuros, o divider mantém sua funcionalidade de
+                    separação visual e seu contraste garante boa visibilidade.
+                  </p>
+                  <BrDivider className="my-3" is-dark-mode />
+                  <p>
+                    Este divider utiliza o modo escuro para adaptar-se ao fundo
+                    escuro.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="divider-group">
-            <BrDivider isIconic density="large" title="Padrão" />
-            <BrDivider
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrDivider
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
         </div>
       </div>
     </div>

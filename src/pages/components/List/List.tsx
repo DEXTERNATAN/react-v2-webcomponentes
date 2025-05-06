@@ -9,16 +9,15 @@ const List: React.FC = () => {
     <div className="list-container" role="main" style={{ padding: "20px" }}>
       <h1>List</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-list&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra o uso do componente <code>&lt;br-list&gt;</code>,
+        utilizado para organizar visualmente agrupamentos de itens com suporte a
+        densidade, layout horizontal, títulos, divisores e interações.
       </p>
 
       <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
+        state="success"
+        message="Nenhuma inconsistência encontrada neste componente."
+        show-icon
         className="mb-4"
       />
 
@@ -42,25 +41,9 @@ const List: React.FC = () => {
             role="group"
             aria-label="Listes principais"
           >
-            <BrList
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="List tipo imagem"
-            />
-            <BrList
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrList
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
+            <BrList title="Tipo: src (Imagem)" aria-label="List tipo imagem" />
+            <BrList title="Tipo: isIconic (Ícone)" />
+            <BrList title="Tipo: text (Letra)" />
           </div>
         </div>
       </section>
@@ -76,24 +59,9 @@ const List: React.FC = () => {
             <code>density</code>.
           </p>
           <div className="list-group">
-            <BrList
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrList
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrList
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
+            <BrList title="Densidade: small" />
+            <BrList title="Densidade: medium" />
+            <BrList title="Densidade: large" />
           </div>
         </div>
       </div>
@@ -108,19 +76,9 @@ const List: React.FC = () => {
             Demonstra o uso da propriedade <code>disabled</code>.
           </p>
           <div className="list-group">
-            <BrList text="OK" density="medium" title="Habilitado" />
-            <BrList
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrList
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
+            <BrList title="Habilitado" />
+            <BrList title="Desabilitado" />
+            <BrList title="Ícone desabilitado" />
           </div>
         </div>
       </div>
@@ -136,21 +94,9 @@ const List: React.FC = () => {
             <code>iconHeight</code>.
           </p>
           <div className="list-group">
-            <BrList isIconic density="large" title="Padrão" />
-            <BrList
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrList
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
+            <BrList title="Padrão" />
+            <BrList title="32px" />
+            <BrList />
           </div>
           <p className="card-text mt-3">
             <small>

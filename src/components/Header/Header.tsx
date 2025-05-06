@@ -18,11 +18,6 @@ const Header: React.FC<HeaderProps> = ({ onToggleMenu }) => {
     }
   };
 
-  const image = {
-    src: "https://www.serpro.gov.br/++resource++serpro.portalserprotema/img/capa/marca-serpro.png",
-    alt: "logo",
-  };
-
   const signature = "Design System do Governo - Web Components 2.0";
 
   return (

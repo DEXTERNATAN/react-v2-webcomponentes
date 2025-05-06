@@ -1,4 +1,11 @@
-import { BrDropdown, BrMessage } from "@govbr-ds/webcomponents-react";
+import {
+  BrButton,
+  BrDropdown,
+  BrIcon,
+  BrItem,
+  BrList,
+  BrMessage,
+} from "@govbr-ds/webcomponents-react";
 import React from "react";
 
 import "./Dropdown.css";
@@ -6,159 +13,66 @@ import "@govbr-ds/core/dist/core.min.css";
 
 const Dropdown: React.FC = () => {
   return (
-    <div className="dropdown-container" role="main" style={{ padding: "20px" }}>
+    <div className="dropdown-container" role="main">
       <h1>Dropdown</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-dropdown&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra o uso do componente{" "}
+        <code>&lt;BrDropdown&gt;</code>, que exibe uma lista de opções acionada
+        por botões ou outros elementos interativos.
       </p>
-
-      <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
-        className="mb-4"
-      />
-
-      {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-dropdown"
-        className="br-card screen-preview mb-4"
-      >
+      <BrMessage state="danger" show-icon className="mb-4">
+        <ul className="mb-0">
+          <li>
+            O <code>v-model</code> não está funcionando corretamente no
+            componente
+            <code>&lt;BrDropdown&gt;</code>.
+          </li>
+          <li>
+            Erro no CSS: o estilo de <code>:hover</code> não está sendo aplicado
+            quando o mouse se move sobre as opções.
+          </li>
+        </ul>
+      </BrMessage>
+      {/*Exemplo 1: Botão ícone circular com card dinâmico */}
+      <div className="br-card screen-preview mb-4">
         <div className="screen-header">
           <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
+            Dropdown com botão circular e ícone
           </div>
         </div>
         <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="dropdown-group"
-            role="group"
-            aria-label="Dropdownes principais"
-          >
+          <p>Clique no botão com ícone para abrir o menu.</p>
+          <div>
             <BrDropdown
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Dropdown tipo imagem"
-            />
-            <BrDropdown
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrDropdown
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
-          </div>
-        </div>
-      </section>
+              style={{
+                width: "100px",
+              }}
+            >
+              <BrButton slot="trigger" shape="circle">
+                <BrIcon icon-name="fa6-solid:ellipsis-vertical" />
+              </BrButton>
 
-      {/* 2. Variações de Densidade (Imagem) */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="dropdown-group">
-            <BrDropdown
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrDropdown
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrDropdown
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
+              <BrList slot="target" list-title="Ações disponíveis">
+                <BrItem is-interactive>
+                  <BrIcon slot="start" icon-name="fa6-solid:heart-pulse" />
+                  Ação 01
+                  <span slot="end">META</span>
+                </BrItem>
+                <span className="br-divider"></span>
+                <BrItem is-interactive>
+                  <BrIcon slot="start" icon-name="fa6-solid:heart-pulse" />
+                  Ação 02
+                  <span slot="end">META</span>
+                </BrItem>
+                <span className="br-divider"></span>
+                <BrItem is-interactive>
+                  <BrIcon slot="start" icon-name="fa6-solid:heart-pulse" />
+                  Ação 03
+                  <span slot="end">META</span>
+                </BrItem>
+              </BrList>
+            </BrDropdown>
           </div>
-        </div>
-      </div>
-
-      {/* 3. Estado Desabilitado */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="dropdown-group">
-            <BrDropdown text="OK" density="medium" title="Habilitado" />
-            <BrDropdown
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrDropdown
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
-          </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="dropdown-group">
-            <BrDropdown isIconic density="large" title="Padrão" />
-            <BrDropdown
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrDropdown
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
         </div>
       </div>
     </div>

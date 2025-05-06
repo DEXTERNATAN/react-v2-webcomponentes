@@ -25,7 +25,7 @@ const SobreProjeto: React.FC = () => {
         <p>
           Este projeto é um <strong>showcase completo</strong> desenvolvido para
           demonstrar a utilização de <em>webcomponents</em> dentro de uma
-          aplicação Vue 3 com Vite, aplicando o Design System do Governo.
+          aplicação React com Vite, aplicando o Design System do Governo.
         </p>
       </div>
 
@@ -37,12 +37,12 @@ const SobreProjeto: React.FC = () => {
         <div className="card-content">
           {[
             {
-              id: "tech-vue",
-              title: "Framework Principal",
-              name: "Vue.js 3",
-              desc: "Framework progressivo para construção de interfaces de usuário.",
-              more: "Framework JavaScript que permite a construção de interfaces de usuário complexas com uma arquitetura baseada em componentes reativos.",
-              link: "https://vuejs.org/",
+              id: "tech-react",
+              title: "Biblioteca Principal",
+              name: "React",
+              desc: "Biblioteca JavaScript para construção de interfaces de usuário baseada em componentes.",
+              more: "Biblioteca mantida pelo Facebook/Meta que permite a criação de componentes reutilizáveis com estado e vida útil gerenciados através de hooks e virtual DOM.",
+              link: "https://react.dev/",
             },
             {
               id: "tech-vite",
@@ -155,12 +155,12 @@ const SobreProjeto: React.FC = () => {
               </li>
               <li>
                 <a
-                  href="https://vuejs.org/guide/introduction.html"
+                  href="https://react.dev/learn"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-primary hover:underline"
                 >
-                  Guia Vue.js
+                  Documentação React
                 </a>
               </li>
             </ul>

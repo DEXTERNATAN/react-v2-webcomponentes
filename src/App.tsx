@@ -1,179 +1,4 @@
-// // App.tsx
-// import React, { useState, useRef } from "react";
-// import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import { Menu, Header } from "./components";
-// import Footer from "./components/Footer/Footer";
-// import Home from "./pages/Home";
-// import Dashboard from "./pages/Dashboard";
-// import FormulariosValidacao from "./pages/dashboard/FormulariosValidacao";
-// import Graficos from "./pages/dashboard/Graficos";
-// import Telas from "./pages/dashboard/Telas/Telas";
-// import Components from "./pages/Components";
-// import Colors from "./pages/Colors";
-// import About from "./pages/About";
-// import Avatar from "./pages/components/Avatar/Avatar";
-// import Breadcrumb from "./pages/components/Breadcrumb/Breadcrumb";
-// import Button from "./pages/components/Button/Button";
-// import "./App.css"; // inclua aqui .list-hide / .list-show
-
-// function App() {
-//   const [isMenuVisible, setMenuVisible] = useState(true);
-
-//   // refs para as <ul> que queremos colapsar
-//   const ulListRef = useRef<HTMLUListElement>(null);
-//   const ulListDashboardRef = useRef<HTMLUListElement>(null);
-
-//   const toggleMenu = () => setMenuVisible((v) => !v);
-
-//   // métodos de collapse iguais aos do Vue, alternando a classe 'list-show'
-//   const collapseItemList = () => {
-//     ulListRef.current?.classList.toggle("list-show");
-//   };
-
-//   const collapseItemListDashBoard = () => {
-//     ulListDashboardRef.current?.classList.toggle("list-show");
-//   };
-
-//   return (
-//     <Router>
-//       <div className="template-base">
-//         {/* Skiplinks */}
-//         <nav className="br-skiplink" role="menubar">
-//           <a
-//             className="br-item"
-//             href="#main-content"
-//             role="menuitem"
-//             accessKey="1"
-//           >
-//             Ir para o conteúdo <span aria-hidden="true">(1/4)</span>
-//             <span aria-hidden="true" className="br-tag text ml-1">
-//               1
-//             </span>
-//           </a>
-//           <a
-//             className="br-item"
-//             href="#header-navigation"
-//             role="menuitem"
-//             accessKey="2"
-//           >
-//             Ir para o menu <span aria-hidden="true">(2/4)</span>
-//             <span aria-hidden="true" className="br-tag text ml-1">
-//               2
-//             </span>
-//           </a>
-//           <a
-//             className="br-item"
-//             href="#main-searchbox"
-//             role="menuitem"
-//             accessKey="3"
-//           >
-//             Ir para a busca <span aria-hidden="true">(3/4)</span>
-//             <span aria-hidden="true" className="br-tag text ml-1">
-//               3
-//             </span>
-//           </a>
-//           <a className="br-item" href="#footer" role="menuitem" accessKey="4">
-//             Ir para o rodapé <span aria-hidden="true">(4/4)</span>
-//             <span aria-hidden="true" className="br-tag text ml-1">
-//               4
-//             </span>
-//           </a>
-//         </nav>
-
-//         {/* Header */}
-//         <Header isMenuVisible={isMenuVisible} onToggleMenu={toggleMenu} />
-
-//         {/* Main + Sidebar */}
-//         <main className="d-flex flex-fill mb-5" id="main">
-//           <div className="container-fluid d-flex">
-//             <div className="row">
-//               {/* Sidebar */}
-//               <aside
-//                 className="br-menu push active"
-//                 id="main-navigation"
-//                 style={{
-//                   display: isMenuVisible ? "block" : "none",
-//                   width: 250,
-//                 }}
-//               >
-//                 <div className="menu-container">
-//                   <div className="menu-panel">
-//                     <div className="menu-header" data-visible="false">
-//                       <div className="menu-title">
-//                         <img
-//                           src="https://www.serpro.gov.br/++resource++serpro.portalserprotema/img/capa/marca-serpro.png"
-//                           alt="Identificação do site ou Sistema"
-//                         />
-//                         <span>Identificação do site ou Sistema</span>
-//                       </div>
-//                       <div className="menu-close">
-//                         <button
-//                           className="br-button circle"
-//                           type="button"
-//                           aria-label="Fechar o menu"
-//                           onClick={toggleMenu}
-//                         >
-//                           <i className="fas fa-times" aria-hidden="true" />
-//                         </button>
-//                       </div>
-//                     </div>
-
-//                     {/* Passamos as refs e callbacks para controlar os submenus */}
-//                     <Menu
-//                       ulListRef={ulListRef}
-//                       ulListDashboardRef={ulListDashboardRef}
-//                       collapseItemList={collapseItemList}
-//                       collapseItemListDashboard={collapseItemListDashBoard}
-//                     />
-
-//                     <div className="menu-footer" data-visible="false">
-//                       {/* rodapé do menu, logos, etc */}
-//                     </div>
-//                   </div>
-//                 </div>
-//               </aside>
-
-//               {/* Conteúdo principal */}
-//               <div className="col mb-5">
-//                 <div className="main-content pl-sm-3 mt-4" id="main-content">
-//                   <Routes>
-//                     <Route path="/" element={<Home />} />
-//                     <Route path="/dashboard/*" element={<Dashboard />}>
-//                       <Route
-//                         path="formularios"
-//                         element={<FormulariosValidacao />}
-//                       />
-//                       <Route path="graficos" element={<Graficos />} />
-//                       <Route path="telas" element={<Telas />} />
-//                     </Route>
-//                     <Route path="/components/*" element={<Components />}>
-//                       <Route path="avatar" element={<Avatar />} />
-//                       <Route path="breadcrumb" element={<Breadcrumb />} />
-//                       <Route path="button" element={<Button />} />
-//                     </Route>
-//                     <Route path="/colors" element={<Colors />} />
-//                     <Route path="/about" element={<About />} />
-//                   </Routes>
-//                 </div>
-//               </div>
-//             </div>
-//           </div>
-//         </main>
-
-//         {/* Footer */}
-//         <Footer />
-
-//         {/* Cookiebar */}
-//         <div className="br-cookiebar default d-none" tabIndex={-1} />
-//       </div>
-//     </Router>
-//   );
-// }
-
-// export default App;
-
-// App.tsx
-import React, { useState, useRef } from "react";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Menu, Header } from "./components";
 import Footer from "./components/Footer/Footer";
@@ -187,11 +12,6 @@ import Telas from "./pages/dashboard/Telas/Telas";
 import Components from "./pages/Components";
 import Colors from "./pages/Colors";
 import About from "./pages/About";
-
-// páginas de componentes
-import Avatar from "./pages/components/Avatar/Avatar";
-import Breadcrumb from "./pages/components/Breadcrumb/Breadcrumb";
-import Button from "./pages/components/Button/Button";
 
 // novas páginas de componentes
 import Checkgroup from "./pages/components/Checkgroup/Checkgroup";
@@ -216,16 +36,8 @@ import "./App.css"; // inclua aqui .list-hide / .list-show
 
 function App() {
   const [isMenuVisible, setMenuVisible] = useState(true);
-  const ulListRef = useRef<HTMLUListElement>(null);
-  const ulListDashboardRef = useRef<HTMLUListElement>(null);
 
   const toggleMenu = () => setMenuVisible((v) => !v);
-  const collapseItemList = () => {
-    ulListRef.current?.classList.toggle("list-show");
-  };
-  const collapseItemListDashBoard = () => {
-    ulListDashboardRef.current?.classList.toggle("list-show");
-  };
 
   return (
     <Router>
@@ -312,12 +124,7 @@ function App() {
                     </div>
 
                     {/* Menu com submenus colapsáveis */}
-                    <Menu
-                      ulListRef={ulListRef}
-                      ulListDashboardRef={ulListDashboardRef}
-                      collapseItemList={collapseItemList}
-                      collapseItemListDashboard={collapseItemListDashBoard}
-                    />
+                    <Menu />
 
                     <div className="menu-footer" data-visible="false">
                       {/* rodapé do menu, logos, etc */}
@@ -342,11 +149,6 @@ function App() {
                     </Route>
 
                     <Route path="/components/*" element={<Components />}>
-                      <Route path="avatar" element={<Avatar />} />
-                      <Route path="breadcrumb" element={<Breadcrumb />} />
-                      <Route path="button" element={<Button />} />
-
-                      {/* novas rotas de componentes */}
                       <Route path="checkgroup" element={<Checkgroup />} />
                       <Route path="collapse" element={<Collapse />} />
                       <Route path="divider" element={<Divider />} />

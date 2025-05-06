@@ -8,158 +8,128 @@ import "@govbr-ds/core/dist/core.min.css";
 const Message: React.FC = () => {
   return (
     <div className="message-container" role="main" style={{ padding: "20px" }}>
-      <h1>Message</h1>
+      <h1>Exemplos de Message</h1>
       <p>
-        Esta página apresenta variações e usos do componente{" "}
-        <code>&lt;br-message&gt;</code>, que permite representar usuários por
-        meio de imagem, ícone ou iniciais. Também é possível ajustar densidade,
-        acessibilidade e estados visuais.
+        Esta página demonstra diferentes exemplos de uso do componente
+        <code>&lt;BrMessage&gt;</code>, com variações de estado, feedback e
+        comportamento.
       </p>
 
       <BrMessage
-        state="danger"
-        message="Erro na dimensão do ícone quando utilizado com botão do tipo circle. Com propriedades width e height."
-        showIcon
+        state="success"
+        message="Nenhuma inconsistência encontrada neste componente."
+        show-icon
         className="mb-4"
       />
 
-      {/* 1. Tipos Principais (Densidade Média) */}
-      <section
-        aria-labelledby="tipo-message"
-        className="br-card screen-preview mb-4"
-      >
-        <div className="screen-header">
-          <div className="screen-title">
-            1. Tipos Principais (Densidade Média)
-          </div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tipos <code>src</code>, <code>isIconic</code> e{" "}
-            <code>text</code>.
-          </p>
-          <div
-            className="message-group"
-            role="group"
-            aria-label="Messagees principais"
-          >
-            <BrMessage
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              alt="Foto de perfil (mulher com câmera)"
-              title="Tipo: src (Imagem)"
-              aria-label="Message tipo imagem"
-            />
-            <BrMessage
-              isIconic
-              density="medium"
-              alt="Ícone de usuário genérico"
-              title="Tipo: isIconic (Ícone)"
-            />
-            <BrMessage
-              text="DG"
-              density="medium"
-              alt="Iniciais DG"
-              title="Tipo: text (Letra)"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 2. Variações de Densidade (Imagem) */}
       <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">2. Variações de Densidade (Imagem)</div>
+          <div className="screen-title">1. Mensagens de Feedback</div>
         </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstração dos tamanhos disponíveis via propriedade{" "}
-            <code>density</code>.
-          </p>
-          <div className="message-group">
-            <BrMessage
-              src="https://picsum.photos/id/1062/80"
-              density="small"
-              title="Densidade: small"
-              alt="Imagem pequena"
-            />
-            <BrMessage
-              src="https://picsum.photos/id/1062/80"
-              density="medium"
-              title="Densidade: medium"
-              alt="Imagem média"
-            />
-            <BrMessage
-              src="https://picsum.photos/id/1062/80"
-              density="large"
-              title="Densidade: large"
-              alt="Imagem grande"
-            />
+        <div className="card-content p-4">
+          <div className="d-flex flex-wrap justify-content-evenly mt-5 p-4">
+            <div className="mb-3">
+              <BrMessage
+                state="success"
+                is-feedback
+                message="Campo correto."
+                show-icon
+                aria-label="Campo correto"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                state="warning"
+                is-feedback
+                message="A tecla CAPS-LOCK está ativada."
+                show-icon
+                aria-label="Aviso: CAPS-LOCK ativado"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                state="danger"
+                is-feedback
+                message="O CPF deve conter apenas dígitos."
+                show-icon
+                aria-label="Erro: CPF inválido"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                state="info"
+                is-feedback
+                show-icon
+                aria-label="Informação sobre formatos de arquivo"
+              >
+                <span>
+                  Os arquivos devem ser no formato PNG, JPG, PDF e ter no máximo
+                  1 GB.
+                </span>
+              </BrMessage>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* 3. Estado Desabilitado */}
       <div className="br-card screen-preview mb-4">
         <div className="screen-header">
-          <div className="screen-title">3. Estado Desabilitado</div>
+          <div className="screen-title">2. Inline &amp; Auto-Remove</div>
         </div>
-        <div className="card-content">
-          <p className="card-text">
-            Demonstra o uso da propriedade <code>disabled</code>.
-          </p>
-          <div className="message-group">
-            <BrMessage text="OK" density="medium" title="Habilitado" />
-            <BrMessage
-              text="OK"
-              density="medium"
-              disabled
-              title="Desabilitado"
-            />
-            <BrMessage
-              isIconic
-              density="medium"
-              disabled
-              title="Ícone desabilitado"
-            />
+        <div className="card-content p-4">
+          <div className="d-flex flex-wrap justify-content-evenly mt-5 p-4">
+            <div className="mb-3">
+              <BrMessage
+                state="success"
+                message-title="Success!"
+                message="Campo correto."
+                is-inline
+                is-closable
+                auto-remove
+                show-icon
+                aria-label="Success: Campo correto"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                state="warning"
+                message-title="Warning!"
+                is-inline
+                message="This is a warning message."
+                is-closable
+                auto-remove
+                show-icon
+                aria-label="Warning: mensagem de aviso"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                state="danger"
+                message-title="Error!"
+                is-inline
+                message="Something went wrong."
+                is-closable
+                auto-remove
+                show-icon
+                aria-label="Error: algo deu errado"
+              ></BrMessage>
+            </div>
+            <div className="mb-3">
+              <BrMessage
+                message-title="Informação."
+                is-inline
+                is-closable
+                auto-remove
+                show-icon
+                aria-label="Informação adicional"
+              >
+                <span>
+                  Seus dados só serão salvos após o preenchimento do primeiro
+                  campo do formulário.
+                </span>
+              </BrMessage>
+            </div>
           </div>
-        </div>
-      </div>
-
-      {/* 4. Ajustes em Ícones */}
-      <div className="br-card screen-preview mb-4">
-        <div className="screen-header">
-          <div className="screen-title">4. Ajustes em Ícones</div>
-        </div>
-        <div className="card-content">
-          <p className="card-text">
-            Exemplo de personalização com <code>iconWidth</code> e{" "}
-            <code>iconHeight</code>.
-          </p>
-          <div className="message-group">
-            <BrMessage isIconic density="large" title="Padrão" />
-            <BrMessage
-              isIconic
-              density="large"
-              iconWidth="32px"
-              iconHeight="32px"
-              title="32px"
-            />
-            <BrMessage
-              isIconic
-              density="large"
-              iconWidth="16px"
-              iconHeight="16px"
-              title="16px"
-            />
-          </div>
-          <p className="card-text mt-3">
-            <small>
-              <em>
-                Dica: use <code>iconMarginTop</code> para ajustes verticais.
-              </em>
-            </small>
-          </p>
         </div>
       </div>
     </div>

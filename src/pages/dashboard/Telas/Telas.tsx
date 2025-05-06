@@ -308,7 +308,6 @@ const Telas: React.FC = () => {
                           </div>
                           <div className="dashboard-filter">
                             <BrSelect
-                              density="small"
                               showSearchIcon
                               label="Período"
                               placeholder="Selecione"
@@ -420,8 +419,7 @@ const Telas: React.FC = () => {
                           </div>
                           <div className="form-group col-md-6">
                             <BrSelect
-                              id="form-state"
-                              density="small"
+                              customId="form-state"
                               showSearchIcon
                               label="Estado"
                               placeholder="Selecione uma opção"

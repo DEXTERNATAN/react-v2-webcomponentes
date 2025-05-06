@@ -12,13 +12,6 @@ interface MenuItem {
   children?: MenuItem[];
 }
 
-// Interface para o item de projeto
-interface ProjectItem {
-  name: string;
-  icon: string;
-  url: string;
-}
-
 const Menu: React.FC = () => {
   const navigate = useNavigate();
   const [itemAtivo, setItemAtivo] = useState<string | null>(null);
@@ -115,7 +108,7 @@ const Menu: React.FC = () => {
           id: "1-21",
           name: "Formulário",
           icon: "fas fa-edit",
-          url: "/components/formularios",
+          url: "/components/formulario",
         },
         {
           id: "1-13",
@@ -192,13 +185,19 @@ const Menu: React.FC = () => {
       icon: "fas fa-palette",
       url: "/colors",
     },
+    {
+      id: "sobre",
+      name: "Sobre o Projeto",
+      icon: "fas fa-info-circle",
+      url: "/about",
+    },
   ]);
 
-  const project: ProjectItem = {
-    name: "Sobre o Projeto",
-    icon: "fas fa-info-circle",
-    url: "/about",
-  };
+  // const project: ProjectItem = {
+  //   name: "Sobre o Projeto",
+  //   icon: "fas fa-info-circle",
+  //   url: "/about",
+  // };
 
   // Alternar a visibilidade da pasta
   const toggleFolder = (id: string) => {
@@ -367,7 +366,7 @@ const Menu: React.FC = () => {
       ))}
 
       {/* Link complementar fora dos grupos principais */}
-      <a
+      {/* <a
         className={`menu-item divider ${
           itemAtivo === "project" ? "active" : ""
         }`}
@@ -388,7 +387,7 @@ const Menu: React.FC = () => {
           <i className={project.icon} aria-hidden="true"></i>
         </span>
         <span className="content">{project.name}</span>
-      </a>
+      </a> */}
     </div>
   );
 };

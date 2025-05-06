@@ -31,6 +31,9 @@ const Components: React.FC = () => {
           <li>
             <Link to="/components/checkbox">Checkbox</Link>
           </li>
+          <li>
+            <Link to="/components/checkgroup">checkgroup</Link>
+          </li>
         </ul>
       </nav>
       <div>
